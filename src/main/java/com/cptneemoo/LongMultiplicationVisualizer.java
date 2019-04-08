@@ -14,7 +14,7 @@ public class LongMultiplicationVisualizer {
     private static final String newLine  = "\n";
 
     public static void main(String[] args) {
-        System.out.println(new LongMultiplicationVisualizer(1234352,3453422));
+        System.out.println(new LongMultiplicationVisualizer(1234352,2));
     }
 
     public String toString(){
@@ -34,9 +34,11 @@ public class LongMultiplicationVisualizer {
             long row = (long) multiplicand1 * digit;
             sb.append(fixedLengthStringLine(Long.toString(row),resultLength,i));
         }
-        sb.append(fixedLengthStringLine(
-                generateStringLine("_",resultLength), resultLength,0));
-        sb.append(result);
+        if (getLongLength(multiplicand2) != 1){
+            sb.append(fixedLengthStringLine(
+                    generateStringLine("_",resultLength), resultLength,0));
+            sb.append(result);
+        }
         return sb.toString();
     }
 
